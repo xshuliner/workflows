@@ -57,10 +57,10 @@ jobs:
       repository_path: ${{ steps.repo.outputs.repository_path }}
 
     steps:
-      - name: Download previous artifacts
-        uses: actions/download-artifact@v4
+      - name: Download previous cache
+        uses: actions/cache@v4
         with:
-          name: ${{ inputs.download_artifact_name }}
+          key: ${{ inputs.download_artifact_name }}
           path: dist/
 
       - name: Get repository name
