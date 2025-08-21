@@ -2,6 +2,10 @@ name: Upload Html
 
 run-name: Upload Html
 
+permissions:
+  actions: read
+  contents: read
+
 on:
   workflow_call:
     inputs:

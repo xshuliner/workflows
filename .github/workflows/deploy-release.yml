@@ -2,6 +2,10 @@ name: Deploy Release
 
 run-name: Deploy Release
 
+permissions:
+  actions: read
+  contents: read
+
 on:
   workflow_call:
     inputs:
