@@ -79,6 +79,8 @@ jobs:
         uses: actions/cache@v4
         with:
           key: ${{ inputs.download_artifact_name }}
+          restore-keys: |
+            ${{ inputs.download_artifact_name }}
           path: dist/
 
       - name: Get repository name
