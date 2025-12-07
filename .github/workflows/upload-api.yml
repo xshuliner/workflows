@@ -141,12 +141,18 @@ jobs:
           script: |
             cd ${{ steps.repo.outputs.repository_path }}${{ inputs.code_path }}
 
-            yarn install
+            # 确保 pnpm 已安装
+            if ! command -v pnpm >/dev/null 2>&1; then
+              echo "pnpm 未安装，正在安装 pnpm..."
+              npm install -g pnpm
+            fi
+
+            pnpm install
 
             # 确保 pm2 已安装
             if ! command -v pm2 >/dev/null 2>&1; then
               echo "pm2 未安装，正在全局安装 pm2..."
-              yarn global add pm2
+              pnpm add -g pm2
             fi
 
             # 根据环境删除并启动对应 pm2 进程
