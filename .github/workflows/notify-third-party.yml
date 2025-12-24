@@ -17,6 +17,12 @@ on:
         type: string
         default: "--"
 
+      icon_url:
+        description: "Version"
+        required: false
+        type: string
+        default: "https://www.xshuliner.online/oss/common/logo.jpg"
+
       preview_url:
         description: "Preview URL"
         required: false
@@ -64,6 +70,12 @@ on:
         required: true
         type: string
         default: "--"
+
+      icon_url:
+        description: "Version"
+        required: false
+        type: string
+        default: "https://www.xshuliner.online/oss/common/logo.jpg"
 
       preview_url:
         description: "Preview URL"
@@ -152,7 +164,7 @@ jobs:
             "template_card": {
               "card_type": "text_notice",
               "source": {
-                "icon_url": "https://www.xshuliner.online/oss/common/logo.jpg",
+                "icon_url": "${{ inputs.icon_url }}",
                 "desc": "'$STATUS_TEXT'"
               },
               "main_title": {
