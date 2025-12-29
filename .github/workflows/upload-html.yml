@@ -29,6 +29,12 @@ on:
         type: string
         default: ""
 
+      api_content:
+        description: "Api content"
+        required: false
+        type: string
+        default: "{}"
+
       rm:
         description: "rm for scp params"
         required: false
@@ -160,7 +166,7 @@ jobs:
                 "ref": "${{ github.ref }}",
                 "sha": "${{ github.sha }}",
                 "actor": "${{ github.actor }}",
-                "content": "{}"
+                "content": "${{ inputs.api_content }}"
               }')
             
             # 分离响应内容和状态码
